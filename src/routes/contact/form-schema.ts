@@ -1,4 +1,4 @@
-import { appLanguages } from "$lib/i18n";
+import { appLanguages } from '$lib/i18n';
 import { z } from 'zod';
 
 export const formSchema = z.object({

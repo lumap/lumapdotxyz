@@ -2,7 +2,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 
-	import { Toaster } from "$lib/components/ui/sonner";
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';

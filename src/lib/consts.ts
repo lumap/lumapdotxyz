@@ -38,11 +38,11 @@ export const myFavoritesList: FavoritesList = {
 		},
 		{
 			title: "L'incroyable vie des choses",
-			link: "https://www.youtube.com/watch?v=Pb2LwzsWBvI"
+			link: 'https://www.youtube.com/watch?v=Pb2LwzsWBvI'
 		},
 		{
-			title: "Taswell",
-			link: "https://www.youtube.com/watch?v=Mj6jF7I2s10"
+			title: 'Taswell',
+			link: 'https://www.youtube.com/watch?v=Mj6jF7I2s10'
 		}
 	],
 	getKeys: function () {

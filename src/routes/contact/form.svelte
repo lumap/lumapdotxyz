@@ -1,14 +1,14 @@
 <script lang="ts">
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
-	import { Textarea } from "$lib/components/ui/textarea";
+	import { Textarea } from '$lib/components/ui/textarea';
 
 	import { type Infer, superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import { toast } from "svelte-sonner";
+	import { toast } from 'svelte-sonner';
 
 	import { formSchema, type FormSchema } from './form-schema';
-	import { locale } from "svelte-i18n";
+	import { locale } from 'svelte-i18n';
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
@@ -19,9 +19,9 @@
 	const { form: formData, enhance, submitting, message } = form;
 
 	$: message.subscribe((msg) => {
-		if (msg?.type === "error") {
+		if (msg?.type === 'error') {
 			toast.error(msg.text);
-		} else if (msg?.type === "success") {
+		} else if (msg?.type === 'success') {
 			toast.success(msg.text);
 		}
 	});
@@ -40,7 +40,9 @@
 	<Form.Field {form} name="email">
 		<Form.Control let:attrs>
 			<Form.Label>Email (optional)</Form.Label>
-			<Form.Description>How I'll reply to you. If not provided, don't expect any reply lol.</Form.Description>
+			<Form.Description
+				>How I'll reply to you. If not provided, don't expect any reply lol.</Form.Description
+			>
 			<Input {...attrs} bind:value={$formData.email} />
 		</Form.Control>
 		<Form.FieldErrors />

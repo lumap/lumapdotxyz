@@ -4,7 +4,7 @@ import { formSchema } from './form-schema';
 import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 
-import { sendWebhookMessage } from "$lib/server/webhook";
+import { sendWebhookMessage } from '$lib/server/webhook';
 export const load: PageServerLoad = async () => {
 	return {
 		form: await superValidate(zod(formSchema))
