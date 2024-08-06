@@ -6,6 +6,11 @@
 	const age = Math.floor((Date.now() - birthDate.getTime()) / 31556952000);
 </script>
 
+<svelte:head>
+    <title>Lumap</title>
+    <meta name="description" content="the silly website of a silly meower" />
+</svelte:head>
+
 <div class="grid place-items-center gap-4">
 	<h1 class="text-4xl font-bold sm:py-3">
 		{$_('lumap')}
