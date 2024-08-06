@@ -1,0 +1,22 @@
+{
+  "lumap": "Lumap",
+  "wip": "Work in progress...",
+  
+  "nav": {
+    "home": "The Silly's Home",
+    "about": "Who?",
+    "contact": "Contact'em"
+  },
+  
+  "footer": {
+    "hosted_at": "Hosted with {host}, built with {framework}!"
+  },
+  
+  "home": {
+    "tagline": "My silly little website!",
+    "message": {
+      "1": "Hello hello! I'm Lumap, a {age} silly guy wandering on the internet all day, waiting for something to eventually happen...",
+      "2": "I absolutely love cats, and especially silly cat gifs! Please send me some {linkStart}here{linkEnd}!"
+    }
+  }
+}

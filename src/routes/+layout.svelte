@@ -1,14 +1,25 @@
-<script>
-	import '../app.css';
-	import Header from '$lib/components/Header.svelte';
+<script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import '../app.css';
+
+	import { isLoading as areLangsLoading } from "svelte-i18n";
 </script>
 
-<div class="relative">
+<div
+	class="relative flex
+	min-h-screen flex-col items-center
+	bg-stone-100 text-stone-900
+	dark:bg-stone-900 dark:text-stone-100"
+>
 	<Header></Header>
 
-	<main class="w-full bg-zinc-50 p-2 font-mono">
-		<slot></slot>
+	<main class="h-full w-full p-2 font-mono">
+		{#if $areLangsLoading}
+			<p>Loading...</p>
+		{:else}
+			<slot></slot>
+		{/if}
 	</main>
 
 	<Footer></Footer>

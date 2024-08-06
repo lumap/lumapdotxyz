@@ -1,12 +1,19 @@
-<footer class="grid gap-2 p-2">
+<script lang="ts">
+    import { _ } from 'svelte-i18n'
+
+	const currentYear = new Date().getFullYear();
+</script>
+
+<footer class="mt-auto grid w-3/4 gap-2 pb-2">
 	<hr class="w-full border-t-2 border-gray-500" />
-	<div class="flex flex-col items-center justify-center gap-2">
-		<p>© Lumap, 2024.</p>
+	<div class="grid grid-cols-2 place-items-center gap-2">
 		<p>
-			This website is hosted on CloudFlare Pages and is <a
-				href="https://github.com/lumap/lumapdotxyz"
-				class="text-blue-600 underline">open-source</a
-			>.
+			{$_("footer.hosted_at", { values: {
+				host: 'CloudFlare Pages',
+				framework: 'SvelteKit'
+			}})}
 		</p>
+
+		<p>© Meow, {currentYear}</p>
 	</div>
 </footer>
