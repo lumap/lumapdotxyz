@@ -3,7 +3,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import '../app.css';
 
-	import { isLoading as areLangsLoading } from "svelte-i18n";
+	import { isLoading as areLangsLoading } from 'svelte-i18n';
 </script>
 
 <div

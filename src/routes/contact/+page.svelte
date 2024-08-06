@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { _ } from "svelte-i18n";
+	import { _ } from 'svelte-i18n';
 </script>
 
-<div class="grid place-items-center h-96">
-    <h1 class="text-3xl">
-        {$_("wip")}
-    </h1>
+<div class="grid h-96 place-items-center">
+	<h1 class="text-3xl">
+		{$_('wip')}
+	</h1>
 </div>

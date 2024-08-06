@@ -2,7 +2,7 @@
 	import Fa from 'svelte-fa';
 	import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	
+
 	import { locale, locales } from 'svelte-i18n';
 
 	function changeLocale(lang: string) {
@@ -18,7 +18,7 @@
 			<DropdownMenu.Label>Choose your language</DropdownMenu.Label>
 			<DropdownMenu.Separator />
 			{#each $locales as lang}
-                <DropdownMenu.Item on:click={()=> changeLocale(lang)}>{lang}</DropdownMenu.Item>
+				<DropdownMenu.Item on:click={() => changeLocale(lang)}>{lang}</DropdownMenu.Item>
 			{/each}
 		</DropdownMenu.Group>
 	</DropdownMenu.Content>
