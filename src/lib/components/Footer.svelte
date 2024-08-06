@@ -8,14 +8,21 @@
 	<hr class="w-full border-t-2 border-gray-500" />
 	<div class="grid grid-cols-2 place-items-center gap-2">
 		<p>
-			{$_('footer.hosted_at', {
+			{@html $_('footer.hosted_at', {
 				values: {
 					host: 'CloudFlare Pages',
-					framework: 'SvelteKit'
+					framework:
+						'<a class="text-blue-500 underline" href="https://github.com/lumap/lumapdotxyz">SvelteKit</a>'
 				}
 			})}
 		</p>
 
-		<p>© Meow, {currentYear}</p>
+		<p>
+			© {$_('lumap')}, {#if currentYear === 2024}
+				{currentYear}
+			{:else}
+				2024 - {currentYear}
+			{/if}
+		</p>
 	</div>
 </footer>

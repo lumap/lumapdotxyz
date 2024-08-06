@@ -1,10 +1,14 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
+
 	import '../app.css';
+	import { ModeWatcher } from 'mode-watcher';
 
 	import { isLoading as areLangsLoading } from 'svelte-i18n';
 </script>
+
+<ModeWatcher />
 
 <div
 	class="relative flex

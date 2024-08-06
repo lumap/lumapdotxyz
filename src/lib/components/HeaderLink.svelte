@@ -7,7 +7,7 @@
 	export let href;
 </script>
 
-<a {href} class:navactive={$page.url.pathname === href} class="nav">{title}</a>
+<a {href} class:navactive={$page.url.pathname === href}>{title}</a>
 
 <style>
 	.navactive {

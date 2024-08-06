@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
+	import Fa from './FontAwesomeIcon.svelte';
 	import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 
