@@ -9,8 +9,6 @@
 <svelte:head>
     <title>Lumap</title>
     <meta name="description" content="the silly website of a silly meower" />
-    <meta property="og:image" content="https://lumap.xyz/favicon.webp" />
-    <meta name="theme-color" content="#4b0082" />
 </svelte:head>
 
 <div class="grid place-items-center gap-4">
