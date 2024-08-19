@@ -55,8 +55,6 @@
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<input type="hidden" name="lang" value={$locale} />
-
 	<Form.Button disabled={$submitting}>Submit</Form.Button>
 
 	<!-- <Form.Button on:click={() => {
