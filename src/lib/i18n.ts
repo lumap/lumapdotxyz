@@ -1,9 +1,6 @@
-import { browser } from '$app/environment';
-import { init, register } from 'svelte-i18n';
+import { init, register, getLocaleFromNavigator } from 'svelte-i18n';
 
-const defaultLocale = 'en';
-
-const appLanguages = ['en', 'fr'];
+export const appLanguages = ['en', 'fr'] as const;
 
 appLanguages.forEach((lang) => {
 	try {
@@ -14,6 +11,6 @@ appLanguages.forEach((lang) => {
 });
 
 init({
-	fallbackLocale: defaultLocale,
-	initialLocale: browser ? window.navigator.language : defaultLocale
+	fallbackLocale: 'en',
+	initialLocale: getLocaleFromNavigator()
 });
