@@ -42,6 +42,7 @@
 		"prettier-plugin-classnames": "^0.7.1",
 		"prettier-plugin-merge": "^0.7.0",
 		"svelte-i18n": "^4.0.0",
+		"svelte-sonner": "^0.3.27",
 		"sveltekit-superforms": "^2.17.0",
 		"tailwind-merge": "^2.4.0",
 		"tailwind-variants": "^0.2.1",
