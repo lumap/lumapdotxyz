@@ -2,6 +2,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 
+	import { Toaster } from "$lib/components/ui/sonner";
+
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
 
@@ -12,6 +14,8 @@
 	<meta property="og:image" content="https://lumap.xyz/favicon.webp" />
 	<meta name="theme-color" content="#9E5BB9" />
 </svelte:head>
+
+<Toaster />
 
 <ModeWatcher />
 
