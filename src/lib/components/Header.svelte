@@ -21,16 +21,7 @@
 	<img src="/favicon.webp" alt="The silly's pfp" class="hidden w-10 sm:block" />
 	<nav class="flex items-center justify-around sm:ml-auto sm:w-fit gap-4">
 		<HeaderLink href="/" title={$_('nav.home')} />
-		<HeaderLink href="/about" title={$_('nav.about')} />
 		<HeaderLink href="/contact" title={$_('nav.contact')} />
-
-		<a href="https://github.com/lumap">
-			<Fa icon={faGithub} />
-		</a>
-
-		<a href="https://discord.gg/4ZXERRD4xG">
-			<Fa icon={faDiscord} />
-		</a>
 
 		<Button on:click={toggleMode} variant="outline" size="icon">
 			<Fa icon={faSun} class="dark:hidden" />
