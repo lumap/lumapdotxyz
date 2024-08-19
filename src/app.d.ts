@@ -17,6 +17,13 @@ declare global {
 			};
 			caches: CacheStorage & { default: Cache };
 		}
+
+		namespace Superforms {
+			type Message = {
+				type: 'error' | 'success'
+				text: string
+			}
+		}
 	}
 }
 
