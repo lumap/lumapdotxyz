@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Message from '$lib/components/Message.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';
-	import { Separator } from "$lib/components/ui/separator";
+	import { Separator } from '$lib/components/ui/separator';
 
 	import { myFavoritesList } from '$lib/consts';
 	import { _ } from 'svelte-i18n';
@@ -45,7 +45,10 @@
 			</p>
 
 			<video class="w-[300px] rounded-md" autoplay loop muted playsinline>
-				<source src="https://media.tenor.com/lOzSvhm2_SoAAAPo/cat-water.mp4" type="video/mp4" />
+				<source
+					src="https://media.tenor.com/lOzSvhm2_SoAAAPo/cat-water.mp4"
+					type="video/mp4"
+				/>
 				Your browser does not support the video tag.
 			</video>
 		</Message>

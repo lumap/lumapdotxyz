@@ -9,8 +9,8 @@
 </script>
 
 <svelte:head>
-    <meta property="og:image" content="https://lumap.xyz/favicon.webp" />
-    <meta name="theme-color" content="#9E5BB9" />
+	<meta property="og:image" content="https://lumap.xyz/favicon.webp" />
+	<meta name="theme-color" content="#9E5BB9" />
 </svelte:head>
 
 <ModeWatcher />

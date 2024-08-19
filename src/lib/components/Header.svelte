@@ -5,7 +5,6 @@
 
 	import { _ } from 'svelte-i18n';
 
-	import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 	import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 	import { toggleMode } from 'mode-watcher';
