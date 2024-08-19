@@ -1,7 +1,7 @@
 type FavoritesList = {
 	games: { title: string; link: string }[];
-	wip: { title: string; link: string }[];
-	getKeys: () => ['games', 'wip'];
+	songs: { title: string; link: string }[];
+	getKeys: () => ['games', 'songs'];
 };
 
 export const myFavoritesList: FavoritesList = {
@@ -31,13 +31,21 @@ export const myFavoritesList: FavoritesList = {
 			link: 'https://www.nintendo.com/us/store/products/super-mario-bros-wonder-switch/'
 		}
 	],
-	wip: [
+	songs: [
 		{
-			title: 'WiP',
+			title: 'Never Gonna Give You Up',
 			link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+		},
+		{
+			title: "L'incroyable vie des choses",
+			link: "https://www.youtube.com/watch?v=Pb2LwzsWBvI"
+		},
+		{
+			title: "Taswell",
+			link: "https://www.youtube.com/watch?v=Mj6jF7I2s10"
 		}
 	],
 	getKeys: function () {
-		return ['games', 'wip'];
+		return ['games', 'songs'];
 	}
 };
