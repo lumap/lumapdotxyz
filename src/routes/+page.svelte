@@ -45,10 +45,7 @@
 			</p>
 
 			<video class="w-[300px] rounded-md" autoplay loop muted playsinline>
-				<source
-					src="https://media.tenor.com/lOzSvhm2_SoAAAPo/cat-water.mp4"
-					type="video/mp4"
-				/>
+				<source src="https://media.tenor.com/lOzSvhm2_SoAAAPo/cat-water.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 		</Message>

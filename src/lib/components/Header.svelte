@@ -18,7 +18,7 @@
     sm:flex sm:items-center"
 >
 	<img src="/favicon.webp" alt="The silly's pfp" class="hidden w-10 sm:block" />
-	<nav class="flex items-center justify-around sm:ml-auto sm:w-fit gap-4">
+	<nav class="flex items-center justify-around gap-4 sm:ml-auto sm:w-fit">
 		<HeaderLink href="/" title={$_('nav.home')} />
 		<HeaderLink href="/contact" title={$_('nav.contact')} />
 
