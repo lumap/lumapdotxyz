@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex gap-4">
-	<img src="/favicon.webp" alt="The silly's pfp" class="h-12 rounded-full" />
+	<img src="https://lumap.xyz/favicon.webp" class="size-12 rounded" alt="my pfp" />
 	<div class="flex flex-col gap-1">
 		<div class="flex items-center gap-1">
 			<p class="text-sm">

@@ -20,6 +20,14 @@ export const actions: Actions = {
 				text: 'Please fill in all required fields'
 			});
 		}
+    const blockedWords = ["google", "seo", "search"];
+    const formMessage = form.data.message.toLowerCase();
+		if (blockedWords.some(word => formMessage.includes(word))) {
+		  return message(form, {
+        type: 'error',
+        text: 'Your message contains blocked words.'
+  		});
+		}
 		await sendWebhookMessage(form.data.name, form.data.message, form.data.email);
 		return message(form, {
 			type: 'success',

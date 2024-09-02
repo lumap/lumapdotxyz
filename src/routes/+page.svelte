@@ -4,7 +4,6 @@
 	import { Separator } from '$lib/components/ui/separator';
 
 	import { myFavoritesList } from '$lib/consts';
-	import { _ } from 'svelte-i18n';
 
 	const birthDate = new Date('September 10, 2004');
 	const age = Math.floor((Date.now() - birthDate.getTime()) / 31556952000);
@@ -17,11 +16,11 @@
 
 <div class="grid place-items-center gap-4">
 	<h1 class="text-4xl font-bold sm:py-3">
-		{$_('lumap')}
+		Lumap
 	</h1>
 
 	<p>
-		{$_('home.tagline')}
+		My silly little website!
 	</p>
 
 	<Separator />
@@ -29,19 +28,13 @@
 	<div class="grid gap-6 sm:w-4/5">
 		<Message>
 			<p>
-				{$_('home.message.1', { values: { age } })}
+				Hello hello! I'm Lumap, a {age} silly guy wandering on the internet all day, waiting for something to eventually happen...
 			</p>
 		</Message>
 
 		<Message>
 			<p>
-				{@html $_('home.message.2', {
-					values: {
-						linkToContact: '/contact',
-						linkStart: "<a class='text-blue-500 underline' href='/contact'>",
-						linkEnd: '</a>'
-					}
-				})}
+				I absolutely love cats, and especially silly cat gifs! Please send me some <a class='text-blue-500 underline' href='/contact'>here</a>!
 			</p>
 
 			<video class="w-[300px] rounded-md" autoplay loop muted playsinline>
@@ -52,13 +45,13 @@
 
 		<Message>
 			<p>
-				{$_('home.message.3')}
+				Wanna know more about me? Sure thing, here's a few things I like:
 			</p>
 
 			<Accordion.Root>
 				{#each myFavoritesList.getKeys() as category}
 					<Accordion.Item value={category}>
-						<Accordion.Trigger>{$_(`home.message.3.${category}`)}</Accordion.Trigger>
+						<Accordion.Trigger>{myFavoritesList.getCategoryName(category)}</Accordion.Trigger>
 						<Accordion.Content>
 							<ul class="list-inside list-disc">
 								{#each myFavoritesList[category] as elm}

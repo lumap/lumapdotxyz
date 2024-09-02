@@ -8,7 +8,6 @@
 	import { toast } from 'svelte-sonner';
 
 	import { formSchema, type FormSchema } from './form-schema';
-	import { locale } from 'svelte-i18n';
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 

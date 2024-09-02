@@ -2,7 +2,6 @@
 	import Fa from '$lib/components/FontAwesomeIcon.svelte';
 	import ContactForm from './form.svelte';
 
-	import { _ } from 'svelte-i18n';
 	import type { PageData } from './$types.js';
 	import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
 	import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +11,7 @@
 
 <div class="grid place-items-center gap-4">
 	<h1 class="text-3xl">
-		{$_('contact')}
+		Contact Me
 	</h1>
 
 	<p>You can contact me either via:</p>

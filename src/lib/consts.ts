@@ -2,6 +2,7 @@ type FavoritesList = {
 	games: { title: string; link: string }[];
 	songs: { title: string; link: string }[];
 	getKeys: () => ['games', 'songs'];
+	getCategoryName: (category: 'games' | 'songs') => 'Video Games' | 'Songs' | 'Unknown';
 };
 
 export const myFavoritesList: FavoritesList = {
@@ -47,5 +48,15 @@ export const myFavoritesList: FavoritesList = {
 	],
 	getKeys: function () {
 		return ['games', 'songs'];
-	}
+	},
+	getCategoryName: function (category: 'games' | 'songs') {
+	  switch (category) {
+      case 'games':
+        return 'Video Games';
+      case 'songs':
+        return 'Songs';
+      default:
+        return 'Unknown';
+    }
+  }
 };

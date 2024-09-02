@@ -1,14 +1,5 @@
 <script>
 	import HeaderLink from './HeaderLink.svelte';
-	import LanguageSelect from './LanguageSelect.svelte';
-	import Fa from './FontAwesomeIcon.svelte';
-
-	import { _ } from 'svelte-i18n';
-
-	import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-
-	import { toggleMode } from 'mode-watcher';
-	import { Button } from '$lib/components/ui/button';
 </script>
 
 <header
@@ -19,17 +10,7 @@
 >
 	<img src="/favicon.webp" alt="The silly's pfp" class="hidden w-10 sm:block" />
 	<nav class="flex items-center justify-around gap-4 sm:ml-auto sm:w-fit">
-		<HeaderLink href="/" title={$_('nav.home')} />
-		<HeaderLink href="/contact" title={$_('nav.contact')} />
-
-		<Button on:click={toggleMode} variant="outline" size="icon">
-			<Fa icon={faSun} class="dark:hidden" />
-			<Fa icon={faMoon} class="hidden dark:block" />
-			<span class="sr-only">Toggle theme</span>
-		</Button>
-
-		<Button variant="outline" size="icon">
-			<LanguageSelect />
-		</Button>
+		<HeaderLink href="/" title="Home" />
+		<HeaderLink href="/contact" title="Contact Me" />
 	</nav>
 </header>

@@ -6,8 +6,6 @@
 
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
-
-	import { isLoading as areLangsLoading } from 'svelte-i18n';
 </script>
 
 <svelte:head>
@@ -17,7 +15,7 @@
 
 <Toaster />
 
-<ModeWatcher />
+<ModeWatcher defaultMode="system" />
 
 <div
 	class="relative flex
@@ -28,11 +26,7 @@
 	<Header></Header>
 
 	<main class="h-full w-full p-2 font-mono">
-		{#if $areLangsLoading}
-			<p>Loading...</p>
-		{:else}
-			<slot></slot>
-		{/if}
+		<slot></slot>
 	</main>
 
 	<Footer></Footer>
