@@ -28,7 +28,7 @@
 	<div class="grid gap-6 sm:w-4/5">
 		<Message>
 			<p>
-				Hello hello! I'm Lumap, a {age} silly guy wandering on the internet all day, waiting for something to eventually happen...
+				Hello hello! I'm Lumap, a {age} years old silly guy wandering on the internet all day, waiting for something to eventually happen...
 			</p>
 		</Message>
 
