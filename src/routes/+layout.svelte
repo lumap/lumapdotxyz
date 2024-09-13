@@ -25,7 +25,7 @@
 >
 	<Header></Header>
 
-	<main class="h-full w-full p-2 font-mono">
+	<main class="h-full w-full px-2 py-8 font-mono">
 		<slot></slot>
 	</main>
 

@@ -17,16 +17,6 @@
 	<p>You can contact me either via:</p>
 	<ul>
 		<li>
-			<Fa icon={faDiscord} class="inline h-7 w-7" />
-			Discord:
-			<a class="text-blue-500 underline" href="https://discord.gg/WeFAAXySQF">My Contact Server</a>
-		</li>
-		<li>
-			<Fa icon={faTwitter} class="inline h-7 w-7" />
-			Twitter:
-			<a class="text-blue-500 underline" href="https://twitter.com/lumapmeow">@lumapmeow</a>
-		</li>
-		<li>
 			<Fa icon={faEnvelope} class="inline h-7 w-7" />
 			Email: <a class="text-blue-500 underline" href="mailto:lumap@duck.com">lumap@duck.com</a>
 		</li>
