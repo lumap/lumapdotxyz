@@ -3,7 +3,7 @@
 	import ContactForm from './form.svelte';
 
 	import type { PageData } from './$types.js';
-	import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
+	import { faSignalMessenger } from '@fortawesome/free-brands-svg-icons';
 	import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 	export let data: PageData;
@@ -15,7 +15,11 @@
 	</h1>
 
 	<p>You can contact me either via:</p>
-	<ul>
+	<ul class="flex flex-col gap-4">
+		<li>
+			<Fa icon={faSignalMessenger} class="inline h-7 w-7" />
+			Signal: lumap.01
+		</li>
 		<li>
 			<Fa icon={faEnvelope} class="inline h-7 w-7" />
 			Email: <a class="text-blue-500 underline" href="mailto:lumap@duck.com">lumap@duck.com</a>
