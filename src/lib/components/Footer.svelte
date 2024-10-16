@@ -4,7 +4,7 @@
 	const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="mt-auto grid w-full gap-2 pb-2 sm:w-3/4">
+<footer class="mt-auto grid w-full gap-4 pb-4 sm:w-3/4">
 	<Separator />
 
 	<div class="grid place-items-center gap-2 sm:grid-cols-2">
