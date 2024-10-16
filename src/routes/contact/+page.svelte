@@ -3,7 +3,7 @@
 	import ContactForm from './form.svelte';
 
 	import type { PageData } from './$types.js';
-	import { faSignalMessenger } from '@fortawesome/free-brands-svg-icons';
+	import { faSignalMessenger, faDiscord, faTelegram } from '@fortawesome/free-brands-svg-icons';
 	import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 	export let data: PageData;
@@ -18,7 +18,15 @@
 	<ul class="flex flex-col gap-4">
 		<li>
 			<Fa icon={faSignalMessenger} class="inline h-7 w-7" />
-			Signal: lumap.01
+			Signal: <code>lumap.01</code>
+		</li>
+		<li>
+			<Fa icon={faDiscord} class="inline h-7 w-7" />
+			Discord: <a class="text-blue-500 underline" href="https://discord.gg/Eq6P7yExKD">My Server</a>
+		</li>
+		<li>
+			<Fa icon={faTelegram} class="inline h-7 w-7" />
+			Telegram: <a class="text-blue-500 underline" href="https://t.me/lumapmeow">@lumapmeow</a>
 		</li>
 		<li>
 			<Fa icon={faEnvelope} class="inline h-7 w-7" />
