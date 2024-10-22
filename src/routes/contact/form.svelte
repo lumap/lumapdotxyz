@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
@@ -9,7 +11,11 @@
 
 	import { formSchema, type FormSchema } from './form-schema';
 
-	export let data: SuperValidated<Infer<FormSchema>>;
+	interface Props {
+		data: SuperValidated<Infer<FormSchema>>;
+	}
+
+	let { data }: Props = $props();
 
 	const form = superForm(data, {
 		validators: zodClient(formSchema)
@@ -17,42 +23,50 @@
 
 	const { form: formData, enhance, submitting, message } = form;
 
-	$: message.subscribe((msg) => {
-		if (msg?.type === 'error') {
-			toast.error(msg.text);
-		} else if (msg?.type === 'success') {
-			toast.success(msg.text);
-		}
+	run(() => {
+		message.subscribe((msg) => {
+			if (msg?.type === 'error') {
+				toast.error(msg.text);
+			} else if (msg?.type === 'success') {
+				toast.success(msg.text);
+			}
+		});
 	});
 </script>
 
 <form method="POST" use:enhance class="flex flex-col gap-2">
 	<Form.Field {form} name="name">
-		<Form.Control let:attrs>
-			<Form.Label>Username</Form.Label>
-			<Form.Description>Who are you?</Form.Description>
-			<Input {...attrs} bind:value={$formData.name} />
-		</Form.Control>
+		<Form.Control >
+			{#snippet children({ attrs })}
+						<Form.Label>Username</Form.Label>
+				<Form.Description>Who are you?</Form.Description>
+				<Input {...attrs} bind:value={$formData.name} />
+								{/snippet}
+				</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 
 	<Form.Field {form} name="email">
-		<Form.Control let:attrs>
-			<Form.Label>Email (optional)</Form.Label>
-			<Form.Description
-				>How I'll reply to you. If not provided, don't expect any reply lol.</Form.Description
-			>
-			<Input {...attrs} bind:value={$formData.email} />
-		</Form.Control>
+		<Form.Control >
+			{#snippet children({ attrs })}
+						<Form.Label>Email (optional)</Form.Label>
+				<Form.Description
+					>How I'll reply to you. If not provided, don't expect any reply lol.</Form.Description
+				>
+				<Input {...attrs} bind:value={$formData.email} />
+								{/snippet}
+				</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 
 	<Form.Field {form} name="message">
-		<Form.Control let:attrs>
-			<Form.Label>Message</Form.Label>
-			<Form.Description>What do you want to tell me?</Form.Description>
-			<Textarea {...attrs} bind:value={$formData.message} />
-		</Form.Control>
+		<Form.Control >
+			{#snippet children({ attrs })}
+						<Form.Label>Message</Form.Label>
+				<Form.Description>What do you want to tell me?</Form.Description>
+				<Textarea {...attrs} bind:value={$formData.message} />
+								{/snippet}
+				</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 

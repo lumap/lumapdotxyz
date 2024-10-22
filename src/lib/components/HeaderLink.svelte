@@ -1,10 +1,16 @@
 <script>
 	import { page } from '$app/stores';
 
-	/** @type{string} */
-	export let title;
-	/** @type{string} */
-	export let href;
+	
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} title
+	 * @property {any} href
+	 */
+
+	/** @type {Props} */
+	let { title, href } = $props();
 </script>
 
 <a {href} class:navactive={$page.url.pathname === href}>{title}</a>

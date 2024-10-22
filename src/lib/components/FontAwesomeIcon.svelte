@@ -1,13 +1,17 @@
 <script lang="ts">
 	import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
+	interface Props {
+		icon: IconDefinition;
+		[key: string]: any
+	}
 
-	export let icon: IconDefinition;
+	let { ...props }: Props = $props();
 
-	const i = icon.icon;
+	const i = props.icon.icon;
 </script>
 
 <svg
-	class={$$props.class + ' h-7 w-7'}
+	class={props.class + ' h-7 w-7'}
 	fill="currentColor"
 	viewBox="0 0 {i[0]} {i[1]}"
 	xmlns="http://www.w3.org/2000/svg"

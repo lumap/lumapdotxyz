@@ -30,17 +30,9 @@
 			<p>
 				Hello hello! I'm Lumap, a {age} years old silly guy wandering on the internet all day, waiting for something to eventually happen...
 			</p>
-		</Message>
-
-		<Message>
 			<p>
 				I absolutely love cats, and especially silly cat gifs! Please send me some <a class='text-blue-500 underline' href='/contact'>here</a>!
 			</p>
-
-			<video class="w-[300px] rounded-md" autoplay loop muted playsinline>
-				<source src="https://media.tenor.com/lOzSvhm2_SoAAAPo/cat-water.mp4" type="video/mp4" />
-				Your browser does not support the video tag.
-			</video>
 		</Message>
 
 		<Message>

@@ -6,6 +6,11 @@
 
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -26,7 +31,7 @@
 	<Header></Header>
 
 	<main class="h-full w-full px-2 py-8 font-mono">
-		<slot></slot>
+		{@render children?.()}
 	</main>
 
 	<Footer></Footer>
