@@ -9,6 +9,11 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Contact Me - Lumap</title>
+	<meta name="description" content="the silly website of a silly meower" />
+</svelte:head>
+
 <div class="grid place-items-center gap-4">
 	<h1 class="text-3xl py-8">
 		Contact Me
