@@ -1,16 +1,11 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte';
-	import Header from '$lib/components/Header.svelte';
-
-	import { Toaster } from '$lib/components/ui/sonner';
-
-	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
-	interface Props {
-		children?: import('svelte').Snippet;
-	}
+	import "../app.css"
+	import MenuBar from "$lib/components/MenuBar.svelte";
+	import app from "$lib/app.svelte";
 
-	let { children }: Props = $props();
+	let { children } = $props();
+
 </script>
 
 <svelte:head>
@@ -18,21 +13,20 @@
 	<meta name="theme-color" content="#9E5BB9" />
 </svelte:head>
 
-<Toaster />
-
 <ModeWatcher defaultMode="system" />
 
-<div
-	class="relative flex
-	min-h-screen flex-col items-center
-	bg-stone-100 text-stone-900
-	dark:bg-stone-900 dark:text-stone-100"
->
-	<Header></Header>
+<div class="font-sanFrancisco bg-[url('/wallpaper.jpg')] bg-cover bg-center h-screen">
 
-	<main class="h-full w-full px-2 py-8 font-mono">
-		{@render children?.()}
-	</main>
+	<MenuBar />
 
-	<Footer></Footer>
+	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
+	<div
+		class="h-[calc(100%-1.75rem)]"
+		onmousedown={() => {
+			app.focusedWindow = "Desktop";
+		}}
+	>
+		{@render children()}	
+	</div>
+
 </div>
