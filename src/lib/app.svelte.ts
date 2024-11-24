@@ -26,7 +26,7 @@ class App {
     closeWindow(windowTitle: WindowTitles) {
         this.openedWindows.delete(windowTitle);
         this.focusOrder.delete(windowTitle);
-        if (this.focusedWindow === windowTitle) this.focusedWindow = this.focusOrder.values().next().value!;
+        if (this.focusedWindow === windowTitle) this.focusedWindow = [...this.focusOrder][this.focusOrder.size - 1];
     }
 
     getZIndex(windowTitle: WindowTitles) {
