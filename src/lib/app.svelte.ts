@@ -9,9 +9,9 @@ export enum WindowTitles {
 import { SvelteSet } from "svelte/reactivity"
 
 class App {
-    focusedWindow = $state(WindowTitles.Hello);
     // The order of the windows in the focusOrder array determines the z-index of the windows (the last element is the topmost window)
-    focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
+    private focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
+    focusedWindow = $state(WindowTitles.Hello);
     openedWindows = new SvelteSet<WindowTitles>([WindowTitles.Hello, WindowTitles.Desktop]);
     wallpaper = $state("/wallpaper.jpg");
 
