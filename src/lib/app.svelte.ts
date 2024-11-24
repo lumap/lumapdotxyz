@@ -2,6 +2,7 @@ export enum WindowTitles {
     Desktop = "Desktop",
     Hello = "Hello",
     Contact = "Contact",
+    Friends = "Friends",
     BackgroundChanger = "Background Changer",
 }
 
@@ -25,7 +26,7 @@ class App {
     closeWindow(windowTitle: WindowTitles) {
         this.openedWindows.delete(windowTitle);
         this.focusOrder.delete(windowTitle);
-        this.focusedWindow = this.focusOrder.values().next().value!;
+        if (this.focusedWindow === windowTitle) this.focusedWindow = this.focusOrder.values().next().value!;
     }
 
     getZIndex(windowTitle: WindowTitles) {

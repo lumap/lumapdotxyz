@@ -13,7 +13,7 @@
 </script>
 
 <div
-    class="relative"
+    class="relative size-12"
     onmouseenter={() => {
         if (!title) return;
         isTooltipVisible = true
@@ -25,7 +25,7 @@
     role="tooltip"
 >
     <p
-        class="absolute top-[-40px] left-1/2 -translate-x-1/2 text-nowrap 
+        class="absolute top-[-40px] left-1/2 -translate-x-1/2 text-nowrap
         {isTooltipVisible ? "block" : "hidden"} 
         bg-white dark:bg-black p-1 rounded-md"
     >
@@ -40,6 +40,6 @@
             app.switchWindowFocus(title);
         }}
     >
-        <img class="size-14" src={icon} alt={iconAlt}>
+        <img class="size-12" src={icon} alt={iconAlt}>
     </button>
 </div>

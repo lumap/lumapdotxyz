@@ -17,6 +17,6 @@
 		⚠️ This website is <strong>NOT</strong> adapted for mobile. I will make a mobile-friendly version eventually, but for now, you're stuck with this.
 	</p>
 	<p class="text-sm absolute bottom-3">
-		This website is a work in progress and is nowhere near final, but I hope you like it!
+		This website is a work in progress and is not final, but I hope you like it! Just need to reimplement contact form and actually do some design in the windows, cuz this sucks wow
 	</p>
 </Window>
