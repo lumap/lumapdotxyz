@@ -20,22 +20,21 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
     <div
-        class="bg-white dark:bg-slate-700 rounded-xl {app.focusedWindow === title ? "shadow-2xl" : ""} border-stone-500 border-[1px] {app.openedWindows.includes(title) ? "block" : "hidden"}"
+        class="bg-white dark:bg-slate-700 rounded-xl {app.focusedWindow === title ? "shadow-2xl" : ""} border-stone-500 border-[1px] {app.openedWindows.has(title) ? "block" : "hidden"}"
         onmousedown={(e) => {
             e.stopPropagation();
-            app.focusedWindow = title;
+            app.switchWindowFocus(title);
         }}
         bind:this={window}
     >
     <div class="w-100 h-9 border-b-slate-300 dark:border-b-slate-600 border-b-[1px] flex items-center px-3">
         <div class="flex-1 flex gap-2">
-            <div
-                class="w-3 h-3 {app.focusedWindow === title ? "bg-red-500" : "bg-slate-600"} rounded-full"
-                onmousedown={(e) => {
-                    e.stopPropagation();
-                    app.closeWindow(title);
-                }}
-            ></div>
+            <button aria-label="Close Window" onmousedown={(e) => {
+                e.stopPropagation();
+                app.closeWindow(title);
+            }}>
+                <div class="w-3 h-3 {app.focusedWindow === title ? "bg-red-500" : "bg-slate-600"} rounded-full"></div>
+            </button>
             <div class="w-3 h-3 {app.focusedWindow === title ? "bg-yellow-500" : "bg-slate-600"} rounded-full"></div>
             <div class="w-3 h-3 {app.focusedWindow === title ? "bg-green-500" : "bg-slate-600"} rounded-full"></div>
         </div>

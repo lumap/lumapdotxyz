@@ -48,7 +48,7 @@
 			</li>
 		</ul>
 		<p class="text-sm absolute bottom-3">
-			This website is a work in progress and is nowhere near final, but I hope you like it! Yes i'm constantly re-doing it, and? it's fun...
+			This website is a work in progress and is nowhere near final, but I hope you like it!
 		</p>
 	</div>
 </Window>

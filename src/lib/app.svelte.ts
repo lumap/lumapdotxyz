@@ -3,15 +3,16 @@ export enum WindowTitles {
     Hello = "Hello"
 }
 
+import { SvelteSet } from "svelte/reactivity"
+
 class App {
-    focusedWindow = $state<WindowTitles>(WindowTitles.Hello);
+    focusedWindow = $state(WindowTitles.Hello);
     focusOrder = $state<WindowTitles[]>([]);
-    openedWindows = $state<WindowTitles[]>([]);
+    openedWindows = new SvelteSet<WindowTitles>([WindowTitles.Hello, WindowTitles.Desktop]);
     wallpaper = $state("/wallpaper.jpg");
 
     constructor() {
         this.focusOrder = [WindowTitles.Hello, WindowTitles.Desktop];
-        this.openedWindows = [WindowTitles.Hello];
     }
 
     switchWindowFocus(windowTitle: WindowTitles) {
@@ -20,11 +21,12 @@ class App {
             this.focusOrder.shift();
         }
         this.focusedWindow = windowTitle;
+        this.openedWindows.add(windowTitle);
     }
 
     closeWindow(windowTitle: WindowTitles) {
-        this.openedWindows = this.openedWindows.filter((title) => title !== windowTitle);
-        this.focusedWindow = this.focusOrder[this.focusOrder.length - 1];
+        this.openedWindows.delete(windowTitle);
+        this.focusedWindow = this.focusOrder.filter((title) => title !== windowTitle)[0];
     }
 }
 

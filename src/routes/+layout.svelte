@@ -1,16 +1,8 @@
 <script lang="ts">
 	import { ModeWatcher } from 'mode-watcher';
-	import "../app.css"
-	import MenuBar from "$lib/components/MenuBar.svelte";
-	import { app } from "$lib/app.svelte";
+	import "../app.css";
 
 	let { children } = $props();
-
-	let root: HTMLElement;
-
-	$effect(() => {
-		root.style.backgroundImage = `url(${app.wallpaper})`;
-	})
 </script>
 
 <svelte:head>
@@ -20,10 +12,8 @@
 
 <ModeWatcher defaultMode="system" />
 
-<div class="font-sanFrancisco bg-cover bg-center h-dvh relative" bind:this={root}>
 
-	<MenuBar />
 
-	{@render children()}	
-
+<div class="font-sanFrancisco">
+	{@render children()}
 </div>
