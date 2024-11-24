@@ -1,11 +1,5 @@
 <script lang="ts">
-	import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
-	interface Props {
-		icon: IconDefinition;
-		[key: string]: any
-	}
-
-	let { ...props }: Props = $props();
+	let props = $props();
 
 	const i = props.icon.icon;
 </script>
