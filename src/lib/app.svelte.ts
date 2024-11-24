@@ -1,6 +1,8 @@
 export enum WindowTitles {
     Desktop = "Desktop",
-    Hello = "Hello"
+    Hello = "Hello",
+    Contact = "Contact",
+    BackgroundChanger = "Background Changer",
 }
 
 import { SvelteSet } from "svelte/reactivity"
@@ -26,7 +28,8 @@ class App {
 
     closeWindow(windowTitle: WindowTitles) {
         this.openedWindows.delete(windowTitle);
-        this.focusedWindow = this.focusOrder.filter((title) => title !== windowTitle)[0];
+        this.focusOrder = this.focusOrder.filter((title) => title !== windowTitle);
+        this.focusedWindow = this.focusOrder[this.focusOrder.length - 1];
     }
 }
 

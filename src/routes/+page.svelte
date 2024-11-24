@@ -1,7 +1,11 @@
 <script lang="ts">
-	import Hello from "$lib/windows/Hello.svelte";
 	import { app, WindowTitles } from "$lib/app.svelte";
 
+	import Hello from "$lib/windows/Hello.svelte";
+	import Contact from "$lib/windows/Contact.svelte";
+	import BackgroundChanger from "$lib/windows/BackgroundChanger.svelte";
+
+	import DockIcon from "$lib/components/DockIcon.svelte";
 
 	let root: HTMLElement;
 
@@ -28,23 +32,16 @@
 	</div>
 {/snippet}
 
-
-{#snippet dockIcon(icon: string, iconAlt: string, title: WindowTitles)}
-    <button onmousedown={(e)=>{
-        e.preventDefault();
-        app.switchWindowFocus(title);
-    }}>
-        <img class="size-14" src={icon} alt={iconAlt}>
-    </button>
-{/snippet}
-
 {#snippet dock()}
 	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 p-1 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex gap-2">
 		{#each [
-			{ icon: "/icons/finder.png", iconAlt: "macOS Finder Icon", title: WindowTitles.Desktop },
-			{ icon: "/icons/wave.png", iconAlt: "macOS Finder Icon", title: WindowTitles.Hello },
+			{ icon: "/icons/finder.png", iconAlt: "macOS Finder Icon (Desktop)", title: WindowTitles.Desktop },
+			{ icon: "/icons/wave.png", iconAlt: "Apple Wave Emoji (Hello)", title: WindowTitles.Hello },
+			{ icon: "/icons/phone.png", iconAlt: "Apple Phone Emoji (Contact)", title: WindowTitles.Contact },
+			{ icon: "/icons/spacer.png", iconAlt: "Spacer" },
+			{ icon: "/icons/landscape.png", iconAlt: "Apple National Park Emoji (Change Wallpaper)", title: WindowTitles.BackgroundChanger },
 		] as { icon, iconAlt, title }}
-			{@render dockIcon(icon, iconAlt, title)}
+			<DockIcon {icon} {iconAlt} {title} />
 		{/each}
 	</div>
 {/snippet}
@@ -55,14 +52,15 @@
 
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 	<div
-		class="h-full"
+		class="h-full relative"
 		onmousedown={() => {
 			app.switchWindowFocus(WindowTitles.Desktop);
 		}}
 	>
-		<div class="w-full h-full grid place-items-center">
-			<Hello />
-		</div>
+		<Hello />
+		<Contact />
+
+		<BackgroundChanger />
 	</div>
 
 	{@render dock()}
