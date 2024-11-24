@@ -9,27 +9,27 @@ import { SvelteSet } from "svelte/reactivity"
 
 class App {
     focusedWindow = $state(WindowTitles.Hello);
-    focusOrder = $state<WindowTitles[]>([]);
+    // The order of the windows in the focusOrder array determines the z-index of the windows (the last element is the topmost window)
+    focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
     openedWindows = new SvelteSet<WindowTitles>([WindowTitles.Hello, WindowTitles.Desktop]);
     wallpaper = $state("/wallpaper.jpg");
 
-    constructor() {
-        this.focusOrder = [WindowTitles.Hello, WindowTitles.Desktop];
-    }
-
     switchWindowFocus(windowTitle: WindowTitles) {
-        this.focusOrder.push(this.focusedWindow);
-        if (this.focusOrder.length >= 50) { // Prevent memory leak if arr too big somehow
-            this.focusOrder.shift();
-        }
+        this.focusOrder.delete(windowTitle);
+        this.focusOrder.add(windowTitle);
+
         this.focusedWindow = windowTitle;
         this.openedWindows.add(windowTitle);
     }
 
     closeWindow(windowTitle: WindowTitles) {
         this.openedWindows.delete(windowTitle);
-        this.focusOrder = this.focusOrder.filter((title) => title !== windowTitle);
-        this.focusedWindow = this.focusOrder[this.focusOrder.length - 1];
+        this.focusOrder.delete(windowTitle);
+        this.focusedWindow = this.focusOrder.values().next().value!;
+    }
+
+    getZIndex(windowTitle: WindowTitles) {
+        return [...this.focusOrder].indexOf(windowTitle);
     }
 }
 

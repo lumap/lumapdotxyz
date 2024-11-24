@@ -30,7 +30,7 @@
         border-stone-500 border-[1px] 
         {app.focusedWindow === title ? "shadow-2xl" : ""} 
         {app.openedWindows.has(title) ? "block" : "hidden"}"
-    style="left: {x}px; top: {y}px;"
+    style="left: {x}px; top: {y}px; z-index: {app.getZIndex(title)}"
     onmousedown={(e) => {
         e.stopPropagation();
         app.switchWindowFocus(title);
