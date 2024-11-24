@@ -3,7 +3,8 @@
 	import Window from "$lib/components/Window.svelte";
 
     import Fa from "$lib/components/FontAwesomeIcon.svelte";
-	import { faSignalMessenger, faDiscord, faTelegram, faXTwitter, faBluesky } from '@fortawesome/free-brands-svg-icons';
+	import { faSignalMessenger, faDiscord, faTelegram, faXTwitter, faBluesky, faSteam } from '@fortawesome/free-brands-svg-icons';
+    import faNintendo from "$lib/customIcons/faNintendo.js";
 	import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 </script>
 
@@ -32,6 +33,14 @@
         <li>
             <Fa icon={faBluesky} class="inline h-7 w-7" />
             <a class="text-blue-300" href="https://bsky.app/profile/lumap.xyz">@lumap.xyz</a>
+        </li>
+        <li>
+            <Fa icon={faSteam} class="inline h-7 w-7" />
+            <a class="text-blue-300" href="https://steamcommunity.com/id/lumap">lumap</a>
+        </li>
+        <li>
+            <Fa icon={faNintendo} class="inline h-7 w-7" />
+            <code>SW-0976-3193-6406</code>
         </li>
         <li>
             <Fa icon={faEnvelope} class="inline h-7 w-7" />
