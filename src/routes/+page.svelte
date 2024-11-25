@@ -6,7 +6,7 @@
 	import Friends from "$lib/windows/Friends.svelte";
 	import BackgroundChanger from "$lib/windows/BackgroundChanger.svelte";
 
-	import DockIcon from "$lib/components/dockIcon.svelte";
+	import DockIcon from "$lib/components/DockIcon.svelte";
 
 	let root: HTMLElement;
 
