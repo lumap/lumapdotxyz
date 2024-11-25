@@ -8,14 +8,7 @@
         My Friends
     </h1>
 
-    <ul class="text-blue-400 underline">
-        <li>
-            <a href="meowpa.ws">kvba</a>
-        </li>
-        <li>
-            <a href="https://linkdiscord.xyz/">Link</a>
-        </li>
-    </ul>
+    <p>This section is empty! (for now (i do have friends dw))</p>
 
     <p class="text-sm absolute bottom-3">
 		Want to be added here? Ask me to!
