@@ -3,6 +3,12 @@
 	import "../app.css";
 
 	let { children } = $props();
+
+	$effect(() => {
+		if (document.body.clientWidth < 768 && window.location.pathname === "/") {
+			location.href = "/mobile"
+		}
+	})
 </script>
 
 <svelte:head>
@@ -11,8 +17,6 @@
 </svelte:head>
 
 <ModeWatcher defaultMode="system" />
-
-
 
 <div class="font-sanFrancisco">
 	{@render children()}

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { app, WindowTitles } from "$lib/app.svelte";
 
-	import Hello from "$lib/windows/Hello.svelte";
-	import Contact from "$lib/windows/Contact.svelte";
-	import Friends from "$lib/windows/Friends.svelte";
-	import BackgroundChanger from "$lib/windows/BackgroundChanger.svelte";
+	import Hello from "$lib/Windows/Hello.svelte";
+	import Contact from "$lib/Windows/Contact.svelte";
+	import Friends from "$lib/Windows/Friends.svelte";
+	import BackgroundChanger from "$lib/Windows/BackgroundChanger.svelte";
 
-	import DockIcon from "$lib/components/DockIcon.svelte";
+	import DockIcon from "$lib/components/dockIcon.svelte";
 
 	let root: HTMLElement;
 
