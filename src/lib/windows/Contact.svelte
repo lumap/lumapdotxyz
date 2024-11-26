@@ -32,20 +32,29 @@
 
     <div class="absolute w-3/4 h-full top-0 left-1/4 p-3">
         {#if selectedTab === "socials"}
-            <div class="grid grid-cols-5 w-full h-full">
+            <div class="grid grid-cols-5 gap-2 gap-y-10">
                 {#snippet socialsElm(icon: IconDefinition, text: string, link: string)}
-                    <a class="flex text-sm flex-col items-center text-center" href={link} target="_blank" rel="noopener noreferrer">
+                <div>
+                    {#if link !== ""}
+                    <a class="flex text-sm flex-col items-center text-center gap-2" href={link} target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={icon} class="size-14" />
                         {text}
                     </a>
+                    {:else}
+                    <div class="flex text-sm flex-col items-center text-center gap-2">
+                        <FontAwesomeIcon icon={icon} class="size-14" />
+                        {text}
+                    </div>
+                    {/if}
+                </div>
                 {/snippet}
 
                 {#each [
-                    { icon: faSignalMessenger, text: "@lumap.01", link: "" },
+                    { icon: faSignalMessenger, text: "lumap.01", link: "" },
                     { icon: faDiscord, text: "My Server", link: "https://discord.gg/Eq6P7yExKD" },
-                    { icon: faTelegram, text: "@lumapmeow", link: "https://t.me/lumapmeow" },
-                    { icon: faXTwitter, text: "@lumapmeow", link: "https://twitter.com/lumapmeow" },
-                    { icon: faBluesky, text: "@lumap.xyz", link: "https://bsky.app/profile/lumap.xyz" },
+                    { icon: faTelegram, text: "lumapmeow", link: "https://t.me/lumapmeow" },
+                    { icon: faXTwitter, text: "lumapmeow", link: "https://twitter.com/lumapmeow" },
+                    { icon: faBluesky, text: "lumap.xyz", link: "https://bsky.app/profile/lumap.xyz" },
                     { icon: faSteam, text: "lumap", link: "https://steamcommunity.com/id/lumap" },
                     { icon: faNintendo as IconDefinition, text: "SW-0976-3193-6406", link: "" },
                     { icon: faEnvelope, text: "lumap@duck.com", link: "mailto:lumap@duck.com" }
