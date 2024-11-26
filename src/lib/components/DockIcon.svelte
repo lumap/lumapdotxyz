@@ -25,7 +25,7 @@
     role="tooltip"
 >
     <p
-        class="absolute top-[-40px] left-1/2 -translate-x-1/2 text-nowrap
+        class="absolute top-[-40px] left-1/2 -translate-x-1/2 text-nowrap z-10
         {isTooltipVisible ? "block" : "hidden"} 
         bg-white dark:bg-black p-1 rounded-md"
     >
@@ -38,6 +38,8 @@
             if (!title) return;
             e.preventDefault();
             app.switchWindowFocus(title);
+            app.windows[title]!.x = 100;
+            app.windows[title]!.y = 100;
         }}
     >
         <img class="size-12" src={icon} alt={iconAlt}>

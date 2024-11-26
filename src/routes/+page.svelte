@@ -21,7 +21,7 @@
 </svelte:head>
 
 {#snippet menuBar()}
-	<div class="absolute top-0 w-full h-7 backdrop-blur-xl bg-white/30 px-1 flex gap-4 font-normal items-center cursor-default">
+	<div class="absolute top-0 w-full h-7 backdrop-blur-xl bg-white/30 px-1 flex gap-4 font-normal items-center cursor-default select-none">
 		<img src="/favicon.ico" class="h-7 aspect-square" alt="My website's Logo"/>
 
 		<p class="font-bold">{app.focusedWindow}</p>
@@ -54,7 +54,7 @@
 
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 	<div
-		class="h-full relative"
+		class="h-full fixed"
 		onmousedown={() => {
 			app.switchWindowFocus(WindowTitles.Desktop);
 		}}
