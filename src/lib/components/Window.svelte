@@ -24,7 +24,7 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 <div
-    class="absolute
+    class="fixed
         w-[50%] h-[45%] rounded-xl 
         bg-white dark:bg-slate-700 
         border-stone-500 border-[1px] 
