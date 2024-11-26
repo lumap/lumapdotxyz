@@ -35,7 +35,7 @@
     }}
 >
     <div
-        class="w-100 h-9 flex items-center px-3 select-none {thisWindow.isMoving ? "cursor-grabbing" : "cursor-grab"}
+        class="w-full h-9 flex items-center px-3 select-none {thisWindow.isMoving ? "cursor-grabbing" : "cursor-grab"}
         border-b-slate-300 dark:border-b-slate-600 border-b-[1px]"
         onmousedown={() => thisWindow.isMoving = true}
     >
