@@ -57,11 +57,11 @@
                     thisWindow.isMoving = false;
                     app.closeWindow(title);
                 }}>
-                    {@render trafficLight("bg-green-500", "/svg/close.svg")}
+                    {@render trafficLight("bg-red-500", "/svg/close.svg")}
                 </button>
             
                 {@render trafficLight("bg-yellow-500", "/svg/minimize.svg")}
-                {@render trafficLight("bg-red-500", "/svg/maximize.svg")}
+                {@render trafficLight("bg-green-500", "/svg/maximize.svg")}
 
             </div>
         </div>
