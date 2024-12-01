@@ -11,33 +11,97 @@
     let thisWindow = app.windows[title]!;
 
     let showTrafficLightIcons = $state(false);
+    let isMoving = $state(false);
+    let isBeingResized = $state<"none"|"tl"|"tr"|"bl"|"br">("none"); // none, top-left, top-right, bottom-left, bottom-right
+
+    let MIN_HEIGHT = 300;
+    let MIN_WIDTH = 425;
 </script>
 
-<svelte:window onmouseup={() => thisWindow.isMoving = false} onmousemove={(e: MouseEvent) => {
-    if (thisWindow.isMoving) {
+<svelte:window
+    onmouseup={() => {
+        isMoving = false;
+        isBeingResized = "none";
+    }}
+    onmousemove={(e: MouseEvent) => {
+    if (isMoving) {
         thisWindow.x += e.movementX;
         thisWindow.y += e.movementY;
+    }
+
+    switch (isBeingResized) {
+        case "tl":
+            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
+            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
+            if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
+            if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
+            break;
+        case "tr":
+            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
+            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
+            if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
+            break;
+        case "bl":
+            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
+            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
+            if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
+            break;
+        case "br":
+            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
+            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
+            break;
     }
 }} />
 
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 <div
-    class="fixed
-        w-[50%] h-[45%] rounded-xl 
+    class="fixed rounded-xl
         bg-white dark:bg-slate-700 
         border-stone-500 border-[1px] 
         {app.focusedWindow === title ? "shadow-2xl" : ""} 
-        {thisWindow.isOpened ? "block" : "hidden"}"
-    style="left: {thisWindow.x}px; top: {thisWindow.y}px; z-index: {app.getZIndex(title)}"
+        {thisWindow.isOpened ? "block" : "hidden"} 
+        {isMoving || (isBeingResized !== "none") ? "pointer-events-none cursor-grabbing" : ""}"
+    style="left: {thisWindow.x}px; top: {thisWindow.y}px; z-index: {app.getZIndex(title)}; width: {thisWindow.width}px; height: {thisWindow.height}px;"
     onmousedown={(e) => {
         e.stopPropagation();
         app.switchWindowFocus(title);
     }}
 >
+    <!-- resizing corners -->
     <div
-        class="w-full h-9 flex items-center px-3 select-none {thisWindow.isMoving ? "cursor-grabbing" : "cursor-grab"}
+        class="absolute top-0 left-0 w-4 h-4 cursor-nw-resize z-50"
+        onmousedown={(e) => {
+            e.stopPropagation();
+            isBeingResized = "tl";
+        }}
+    ></div>
+        <div
+        class="absolute top-0 right-0 w-4 h-4 cursor-ne-resize z-50"
+        onmousedown={(e) => {
+            e.stopPropagation();
+            isBeingResized = "tr";
+        }}
+    ></div>
+    <div
+        class="absolute bottom-0 left-0 w-4 h-4 cursor-sw-resize z-50"
+        onmousedown={(e) => {
+            e.stopPropagation();
+            isBeingResized = "bl";
+        }}
+    ></div>
+    <div
+        class="absolute bottom-0 right-0 w-4 h-4 cursor-se-resize z-50"
+        onmousedown={(e) => {
+            e.stopPropagation();
+            isBeingResized = "br";
+        }}
+    ></div>
+
+    <!-- top bar -->
+    <div
+        class="w-full h-9 flex items-center px-3 select-none cursor-grab 
         border-b-slate-300 dark:border-b-slate-600 border-b-[1px]"
-        onmousedown={() => thisWindow.isMoving = true}
+        onmousedown={() => isMoving = true}
     >
         <div class="flex-1">
             <div
@@ -54,7 +118,7 @@
                 
                 <button aria-label="Close Window" onmousedown={(e) => {
                     e.stopPropagation();
-                    thisWindow.isMoving = false;
+                    isMoving = false;
                     app.closeWindow(title);
                 }}>
                     {@render trafficLight("bg-red-500", "/svg/close.svg")}

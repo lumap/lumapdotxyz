@@ -40,6 +40,8 @@
             app.switchWindowFocus(title);
             app.windows[title]!.x = 100;
             app.windows[title]!.y = 100;
+            app.windows[title]!.width = 800;
+            app.windows[title]!.height = 500;
         }}
     >
         <img class="size-12" src={icon} alt={iconAlt}>

@@ -11,7 +11,8 @@ import { SvelteSet } from "svelte/reactivity"
 type WindowState = {
     x: number;
     y: number;
-    isMoving: boolean;
+    width: number;
+    height: number;
     isOpened: boolean;
     title: WindowTitles
 }
@@ -34,7 +35,8 @@ class App {
             this.windows[key] = {
                 x: 100,
                 y: 100,
-                isMoving: false,
+                width: 800,
+                height: 500,
                 isOpened: defaultOpenedWindows.includes(key),
                 title: key
             } as WindowState

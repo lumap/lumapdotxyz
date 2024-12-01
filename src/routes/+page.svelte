@@ -7,6 +7,7 @@
 	import BackgroundChanger from "$lib/windows/BackgroundChanger.svelte";
 
 	import DockIcon from "$lib/components/DockIcon.svelte";
+	import MenuBar from "$lib/components/MenuBar.svelte";
 
 	let root: HTMLElement;
 
@@ -20,18 +21,14 @@
 	<meta name="description" content="the silly website of a silly meower" />
 </svelte:head>
 
-{#snippet menuBar()}
-	<div class="absolute top-0 w-full h-7 backdrop-blur-xl bg-white/30 px-1 flex gap-4 font-normal items-center cursor-default select-none">
-		<img src="/favicon.ico" class="h-7 aspect-square" alt="My website's Logo"/>
-
-		<p class="font-bold">{app.focusedWindow}</p>
-		<p>File</p>
-		<p>Edit</p>
-		<p>View</p>
-		<p>Window</p>
-		<p>Help</p>
-	</div>
-{/snippet}
+<svelte:window onkeydown={(e: KeyboardEvent)=>{
+	const target = e.target as HTMLElement | null;
+	if (target?.tagName === "INPUT" || target?.tagName === "TEXTAREA") return;
+	if (e.key === "w" && app.focusedWindow !== WindowTitles.Desktop) {
+		app.closeWindow(app.focusedWindow);
+	}
+}}
+></svelte:window>
 
 {#snippet dock()}
 	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 p-2 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex gap-2">
@@ -50,7 +47,7 @@
 
 
 <div class="bg-cover bg-center h-dvh relative" bind:this={root}>
-	{@render menuBar()}
+	<MenuBar />
 
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 	<div
