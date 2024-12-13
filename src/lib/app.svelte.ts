@@ -25,9 +25,10 @@ class App {
     // The order of the windows in the focusOrder array determines the z-index of the windows (the last element is the topmost window)
     private focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
     focusedWindow = $state(WindowTitles.Hello);
-    // openedWindows = new SvelteSet<WindowTitles>([WindowTitles.Hello, WindowTitles.Desktop]);
     windows = $state<WindowType>({})
+    private windowsPreMobile = $state<WindowType>({})
     wallpaper = $state("/wallpaper.jpg");
+    isMobile = $state(false);
 
     constructor() {
         const defaultOpenedWindows = [WindowTitles.Desktop, WindowTitles.Hello]
@@ -60,6 +61,22 @@ class App {
 
     getZIndex(windowTitle: WindowTitles) {
         return [...this.focusOrder].indexOf(windowTitle);
+    }
+
+    switchMobileStatus(newStatus: boolean) {
+        this.isMobile = newStatus;
+        console.log("[app.switchMobileStatus] newStatus:", newStatus);
+        if (newStatus === true) {
+            this.windowsPreMobile = { ...this.windows };
+            for (const key of Object.values(WindowTitles)) {
+                this.windows[key]!.x = 4;
+                this.windows[key]!.y = 32;
+                this.windows[key]!.width = -1;
+                this.windows[key]!.height = -1;
+            }
+        } else {
+            this.windows = { ...this.windowsPreMobile };
+        }
     }
 }
 

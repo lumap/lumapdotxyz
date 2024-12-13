@@ -38,6 +38,7 @@
             if (!title) return;
             e.preventDefault();
             app.switchWindowFocus(title);
+            if (app.isMobile) return;
             app.windows[title]!.x = 100;
             app.windows[title]!.y = 100;
             app.windows[title]!.width = 800;

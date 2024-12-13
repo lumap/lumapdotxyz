@@ -32,7 +32,7 @@
 
     <div class="absolute w-3/4 h-full top-0 left-1/4 p-3">
         {#if selectedTab === "socials"}
-            <div class="grid grid-cols-5 gap-2 gap-y-10">
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-2 gap-y-10">
                 {#snippet socialsElm(icon: IconDefinition, text: string, link: string)}
                 <div>
                     {#if link !== ""}

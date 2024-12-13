@@ -24,34 +24,37 @@
         isBeingResized = "none";
     }}
     onmousemove={(e: MouseEvent) => {
-    if (isMoving) {
-        thisWindow.x += e.movementX;
-        thisWindow.y += e.movementY;
-    }
+        if (app.isMobile) return;
 
-    switch (isBeingResized) {
-        case "tl":
-            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
-            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
-            if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
-            if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
-            break;
-        case "tr":
-            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
-            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
-            if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
-            break;
-        case "bl":
-            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
-            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
-            if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
-            break;
-        case "br":
-            thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
-            thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
-            break;
-    }
-}} />
+        if (isMoving) {
+            thisWindow.x += e.movementX;
+            thisWindow.y += e.movementY;
+        }
+
+        switch (isBeingResized) {
+            case "tl":
+                thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
+                thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
+                if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
+                if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
+                break;
+            case "tr":
+                thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
+                thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height - e.movementY);
+                if (thisWindow.height !== MIN_HEIGHT) thisWindow.y += e.movementY;
+                break;
+            case "bl":
+                thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width - e.movementX);
+                thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
+                if (thisWindow.width !== MIN_WIDTH) thisWindow.x += e.movementX;
+                break;
+            case "br":
+                thisWindow.width = Math.max(MIN_WIDTH, thisWindow.width + e.movementX);
+                thisWindow.height = Math.max(MIN_HEIGHT, thisWindow.height + e.movementY);
+                break;
+        }
+    }}
+/>
 
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 <div
@@ -61,7 +64,7 @@
         {app.focusedWindow === title ? "shadow-2xl" : ""} 
         {thisWindow.isOpened ? "block" : "hidden"} 
         {isMoving || (isBeingResized !== "none") ? "pointer-events-none cursor-grabbing" : ""}"
-    style="left: {thisWindow.x}px; top: {thisWindow.y}px; z-index: {app.getZIndex(title)}; width: {thisWindow.width}px; height: {thisWindow.height}px;"
+    style="left: {thisWindow.x}px; top: {thisWindow.y}px; z-index: {app.getZIndex(title)}; width: {thisWindow.width === -1 ? "calc(100% - 8px)" : thisWindow.width+"px"}; height: {thisWindow.height === -1 ? "calc(100% - 104px)" : thisWindow.height+"px"};"
     onmousedown={(e) => {
         e.stopPropagation();
         app.switchWindowFocus(title);
