@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { app, WindowTitles } from "$lib/app.svelte";
-	import { MediaQuery } from 'svelte/reactivity';
 
 	import Hello from "$lib/windows/Hello.svelte";
 	import Contact from "$lib/windows/Contact.svelte";
@@ -14,10 +13,7 @@
 
 	$effect(() => {
 		root.style.backgroundImage = `url(${app.wallpaper})`;
-	})
-
-	$effect(()=>{
-		app.switchMobileStatus(document.body.offsetWidth < 768);
+		if (document.body.offsetWidth < 768) app.switchToMobile();
 	})
 </script>
 

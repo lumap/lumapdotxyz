@@ -25,8 +25,7 @@ class App {
     // The order of the windows in the focusOrder array determines the z-index of the windows (the last element is the topmost window)
     private focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
     focusedWindow = $state(WindowTitles.Hello);
-    windows = $state<WindowType>({})
-    private windowsPreMobile = $state<WindowType>({})
+    windows = $state<WindowType>({});
     wallpaper = $state("/wallpaper.jpg");
     isMobile = $state(false);
 
@@ -49,6 +48,9 @@ class App {
         this.focusOrder.add(windowTitle);
 
         this.focusedWindow = windowTitle;
+        console.log("[app.switchWindowFocus] focusedWindow.windowTitle:", windowTitle);
+        console.log("[app.switchWindowFocus] focusedWindow.windows:", $state.snapshot(this.windows));
+        console.log("[app.switchWindowFocus] focusedWindow:", this.windows[windowTitle]);
 
         this.windows[windowTitle]!.isOpened = true
     }
@@ -63,19 +65,13 @@ class App {
         return [...this.focusOrder].indexOf(windowTitle);
     }
 
-    switchMobileStatus(newStatus: boolean) {
-        this.isMobile = newStatus;
-        console.log("[app.switchMobileStatus] newStatus:", newStatus);
-        if (newStatus === true) {
-            this.windowsPreMobile = { ...this.windows };
-            for (const key of Object.values(WindowTitles)) {
-                this.windows[key]!.x = 4;
-                this.windows[key]!.y = 32;
-                this.windows[key]!.width = -1;
-                this.windows[key]!.height = -1;
-            }
-        } else {
-            this.windows = { ...this.windowsPreMobile };
+    switchToMobile() {
+        this.isMobile = true;
+        for (const key of Object.values(WindowTitles)) {
+            this.windows[key]!.x = 4;
+            this.windows[key]!.y = 32;
+            this.windows[key]!.width = -1;
+            this.windows[key]!.height = -1;
         }
     }
 }
