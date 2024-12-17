@@ -11,12 +11,10 @@
 		Hi there!
 	</h1>
 	<p>
-		I'm Lumap, a {age} y/o guy wandering on the interwebs, not doing much things apart from playing games.
+		I'm Lumap, a {age} y/o fr*nch guy wandering on the interwebs. I don't do much outside of finding/sending cat gifs app day.
 	</p>
 	<p>
-		⚠️ This website is <strong>NOT</strong> adapted for mobile. I will make a mobile-friendly version eventually, but for now, you're stuck with this.
+		Here, have a cat gif to make ur day better:
 	</p>
-	<p class="text-sm absolute bottom-3">
-		This website is a work in progress and is not final, but I hope you like it! Just need to reimplement contact form and actually do some design in the windows, cuz this sucks wow
-	</p>
+	<img class="w-[238px] h-[300px] rounded-sm" src="/appl.gif" alt="A cat gif" />
 </Window>

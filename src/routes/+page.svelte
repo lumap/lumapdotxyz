@@ -32,9 +32,10 @@
 ></svelte:window>
 
 {#snippet dock()}
-	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 p-2 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex gap-2">
+	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex">
 		{#each [
 			{ icon: "/icons/finder.png", iconAlt: "macOS Finder Icon (Desktop)", title: WindowTitles.Desktop },
+			{ icon: "/icons/spacer.png", iconAlt: "Spacer" },
 			{ icon: "/icons/wave.png", iconAlt: "Apple Wave Emoji (Hello)", title: WindowTitles.Hello },
 			{ icon: "/icons/phone.png", iconAlt: "Apple Phone Emoji (Contact)", title: WindowTitles.Contact },
 			{ icon: "/icons/two_people.png", iconAlt: "Apple Friends Emoji (Friends)", title: WindowTitles.Friends },
