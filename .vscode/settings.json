@@ -1,6 +1,5 @@
 {
 	"editor.quickSuggestions": {
 		"strings": "on"
-	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
