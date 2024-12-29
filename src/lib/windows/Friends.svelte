@@ -3,21 +3,40 @@
 	import Window from "$lib/components/Window.svelte";
 </script>
 
+{#snippet fren(name: string, website: string)}
+    <a href={website} class="text-center">
+        <img class="rounded-full" src={`/friends/${name.toLowerCase()}.png`} alt="{name}'s pfp">
+        <p>{name}</p>
+    </a>
+{/snippet}
+
 <Window title={WindowTitles.Friends}>
     <h1 class="text-xl font-bold">
         My Friends
     </h1>
+    
 
-    <div class="h-full w-full grid grid-cols-6 grid-rows-3">
-        <a href="https://hayper.xyz" class="text-center">
-            <img class="rounded-full" src="/friends/hayper.png" alt="Hayper's pfp">
-            <p>Hayper</p>
-        </a>
-
-        <a href="https://meowpa.ws" class="text-center">
-            <img class="rounded-full" src="/friends/kvba.png" alt="Kvba's pfp">
-            <p>Kvba</p>
-        </a>
+    <div class="grid grid-cols-6 gap-3">
+        {#each [
+            {
+                name: "Link",
+                website: "https://linkdiscord.xyz"
+            },
+            {
+                name: "Instellate",
+                website: "https://instellate.xyz"
+            },
+            {
+                name: "Hayper",
+                website: "https://hayper.xyz"
+            },
+            {
+                name: "Kvba",
+                website: "https://meowpa.ws"
+            },
+        ] as {name, website}}
+            {@render fren(name, website)}
+        {/each}
     </div>
 
     <p class="text-sm absolute bottom-3">
