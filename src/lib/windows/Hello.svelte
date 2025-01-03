@@ -11,7 +11,7 @@
 		Hi there!
 	</h1>
 	<p>
-		I'm Lumap, a {age} y/o fr*nch guy wandering on the interwebs. I don't do much outside of finding/sending cat gifs app day.
+		I'm Lumap, a {age} y/o fr*nch guy wandering on the interwebs. I don't do much outside of sending cat gifs all day and being silly.
 	</p>
 	<p>
 		Here, have a cat gif to make ur day better:
