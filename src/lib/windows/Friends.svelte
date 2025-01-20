@@ -16,7 +16,7 @@
 		{#each [
             { btnURL: "/button.png", website: "https://lumap.xyz" },
             { btnURL: 'https://uwu.gal/button.png', website: 'https://uwu.gal/about-us' },
-            { btnURL: "/button-inst.png", website: "https://instellate.xyz" },
+            { btnURL: "https://instellate.xyz/img/button.png", website: "https://instellate.xyz" },
 			{ btnURL: "https://uwu.gal/static/images/friends/nemmintron.gif", website: "https://github.com/Pandaptable" }
         ] as { btnURL, website }}
 			{@render fren(btnURL, website)}
