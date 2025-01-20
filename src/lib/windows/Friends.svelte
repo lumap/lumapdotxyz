@@ -17,7 +17,8 @@
             { btnURL: "/button.png", website: "https://lumap.xyz" },
             { btnURL: 'https://uwu.gal/button.png', website: 'https://uwu.gal/about-us' },
             { btnURL: "https://instellate.xyz/img/button.png", website: "https://instellate.xyz" },
-			{ btnURL: "https://uwu.gal/static/images/friends/nemmintron.gif", website: "https://github.com/Pandaptable" }
+			{ btnURL: "https://uwu.gal/static/images/friends/nemmintron.gif", website: "https://github.com/Pandaptable" },
+			{ btnURL: "https://linkdiscord.xyz/button.png", website: "https://linkdiscord.xyz" },
         ] as { btnURL, website }}
 			{@render fren(btnURL, website)}
 		{/each}
