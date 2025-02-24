@@ -11,7 +11,7 @@ export const GET: RequestHandler = async ({ request }) => {
       'Content-Type': 'image/png',
       'Access-Control-Allow-Origin': '*', // Allow all origins
       'Access-Control-Allow-Methods': 'GET,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Cache-Control'
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   });
 };
@@ -22,7 +22,7 @@ export const OPTIONS: RequestHandler = async ({ request }) => {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Cache-Control'
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   });
 };
