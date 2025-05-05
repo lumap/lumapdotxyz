@@ -32,7 +32,7 @@
 
             {#each [
                 { icon: faSignalMessenger, text: "lumap.01", link: "" },
-                { icon: faDiscord, text: "My Server", link: "https://discord.gg/Eq6P7yExKD" },
+                { icon: faDiscord, text: "lumap", link: "" },
                 { icon: faTelegram, text: "lumapmeow", link: "https://t.me/lumapmeow" },
                 { icon: faXTwitter, text: "lumapmeow", link: "https://twitter.com/lumapmeow" },
                 { icon: faBluesky, text: "lumap.xyz", link: "https://bsky.app/profile/lumap.xyz" },
