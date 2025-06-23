@@ -18,7 +18,8 @@
             { btnURL: 'https://uwu.gal/button.png', website: 'https://uwu.gal/about-us' },
             { btnURL: "https://instellate.xyz/img/button.png", website: "https://instellate.xyz" },
 			{ btnURL: "https://linkdiscord.xyz/button.png", website: "https://linkdiscord.xyz" },
-			{ btnURL: "https://pre1ude.dev/blankie.png", website: "https://pre1ude.dev" }
+			{ btnURL: "https://pre1ude.dev/blankie.png", website: "https://pre1ude.dev" },
+			{ btnURL: "https://auxim.gay/img/webring/auxim.png", website: "https://auxim.gay" }
         ] as { btnURL, website }}
 			{@render fren(btnURL, website)}
 		{/each}
