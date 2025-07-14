@@ -17,7 +17,7 @@
             { btnURL: "/button.png", website: "https://lumap.xyz" },
             { btnURL: 'https://uwu.gal/button.png', website: 'https://uwu.gal/about-us' },
             { btnURL: "https://instellate.xyz/img/button.png", website: "https://instellate.xyz" },
-			{ btnURL: "https://linkdiscord.xyz/button.png", website: "https://linkdiscord.xyz" },
+			{ btnURL: "https://linkle.dev/button.png", website: "https://linkle.dev" },
 			{ btnURL: "https://pre1ude.dev/blankie.png", website: "https://pre1ude.dev" },
 			{ btnURL: "https://auxim.gay/img/webring/auxim.png", website: "https://auxim.gay" },
 			{ btnURL: "https://blog.pnly.io/content/images/2025/01/panley.png", website: "https://panley.xn--q9jyb4c/" }
