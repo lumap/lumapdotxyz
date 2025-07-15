@@ -30,7 +30,7 @@ class App {
     isMobile = $state(false);
 
     constructor() {
-        const defaultOpenedWindows = [WindowTitles.Desktop, WindowTitles.Hello]
+        const defaultOpenedWindows = [WindowTitles.Desktop, WindowTitles.Hello, WindowTitles.Contact, WindowTitles.Friends]
         for (const key of Object.values(WindowTitles)) {
             this.windows[key] = {
                 x: 100,
@@ -73,6 +73,17 @@ class App {
             this.windows[key]!.width = -1;
             this.windows[key]!.height = -1;
         }
+    }
+
+    shuffleWindows(screenWidth: number, screenHeight: number) {
+        for (const key of Object.values(WindowTitles)) {
+            this.windows[key]!.x = Math.floor(Math.random() * (screenWidth - 200));
+            this.windows[key]!.y = Math.floor(Math.random() * (screenHeight - 200));
+        }
+
+        // shuffle windows in focusOrder
+        this.focusOrder = new SvelteSet([...this.focusOrder].sort(() => Math.random() - 0.5));
+
     }
 }
 

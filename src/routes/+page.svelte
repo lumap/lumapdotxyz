@@ -13,7 +13,11 @@
 
 	$effect(() => {
 		root.style.backgroundImage = `url(${app.wallpaper})`;
-		if (document.body.offsetWidth < 768) app.switchToMobile();
+		if (document.body.offsetWidth < 768) {
+			app.switchToMobile();
+		} else {
+			app.shuffleWindows(screen.width, screen.height);
+		}
 	})
 </script>
 
