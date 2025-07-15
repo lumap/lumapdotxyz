@@ -28,6 +28,7 @@ class App {
     windows = $state<WindowType>({});
     wallpaper = $state("/wallpaper.jpg");
     isMobile = $state(false);
+    shuffled = $state(false);
 
     constructor() {
         const defaultOpenedWindows = [WindowTitles.Desktop, WindowTitles.Hello, WindowTitles.Contact, WindowTitles.Friends]
@@ -83,7 +84,7 @@ class App {
 
         // shuffle windows in focusOrder
         this.focusOrder = new SvelteSet([...this.focusOrder].sort(() => Math.random() - 0.5));
-
+        this.shuffled = true;
     }
 }
 

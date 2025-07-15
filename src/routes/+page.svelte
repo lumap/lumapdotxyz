@@ -12,12 +12,14 @@
 	let root: HTMLElement;
 
 	$effect(() => {
-		root.style.backgroundImage = `url(${app.wallpaper})`;
 		if (document.body.offsetWidth < 768) {
 			app.switchToMobile();
-		} else {
+		}
+		if (!app.shuffled) {
 			app.shuffleWindows(screen.width, screen.height);
 		}
+
+		root.style.backgroundImage = `url(${app.wallpaper})`;
 	})
 </script>
 
