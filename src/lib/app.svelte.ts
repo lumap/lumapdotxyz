@@ -83,7 +83,11 @@ class App {
         }
 
         // shuffle windows in focusOrder
-        this.focusOrder = new SvelteSet([...this.focusOrder].sort(() => Math.random() - 0.5));
+        const shuffledFocusOrder = Array.from(this.focusOrder).sort(() => Math.random() - 0.5);
+        this.focusOrder.clear();
+        for (const title of shuffledFocusOrder) {
+            this.focusOrder.add(title);
+        }
         this.shuffled = true;
     }
 }
