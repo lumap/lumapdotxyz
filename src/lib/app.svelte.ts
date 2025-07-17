@@ -26,7 +26,7 @@ class App {
     private focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
     focusedWindow = $state(WindowTitles.Hello);
     windows = $state<WindowType>({});
-    wallpaper = $state("/wallpaper.jpg");
+    wallpaper = $state("/wallpaper.jpeg");
     isMobile = $state(false);
     shuffled = $state(false);
 
