@@ -8,6 +8,7 @@
 
 	import DockIcon from "$lib/components/DockIcon.svelte";
 	import MenuBar from "$lib/components/MenuBar.svelte";
+	import ThemeChanger from "$lib/windows/ThemeChanger.svelte";
 
 	let root: HTMLElement;
 
@@ -38,15 +39,16 @@
 ></svelte:window>
 
 {#snippet dock()}
-	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex">
+	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded-xl backdrop-blur-xl bg-white/50 dark:bg-black/50 flex dark:text-white">
 		{#each [
 			{ icon: "/icons/finder.png", iconAlt: "macOS Finder Icon (Desktop)", title: WindowTitles.Desktop },
 			{ icon: "/icons/spacer.png", iconAlt: "Spacer" },
 			{ icon: "/icons/wave.png", iconAlt: "Apple Wave Emoji (Hello)", title: WindowTitles.Hello },
-			{ icon: "/icons/phone.png", iconAlt: "Apple Phone Emoji (Contact)", title: WindowTitles.Contact },
+			{ icon: "/icons/speech_balloon.png", iconAlt: "Apple Phone Emoji (Contact)", title: WindowTitles.Contact },
 			{ icon: "/icons/two_people.png", iconAlt: "Apple Friends Emoji (Friends)", title: WindowTitles.Friends },
 			{ icon: "/icons/spacer.png", iconAlt: "Spacer" },
 			{ icon: "/icons/landscape.png", iconAlt: "Apple National Park Emoji (Change Wallpaper)", title: WindowTitles.BackgroundChanger },
+			{ icon: "/icons/halfmoon.png", iconAlt: "Apple Last Quarter Moon Emoji (Theme Changer)", title: WindowTitles.ThemeChanger }
 		] as { icon, iconAlt, title }}
 			<DockIcon {icon} {iconAlt} {title} />
 		{/each}
@@ -59,7 +61,7 @@
 
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
 	<div
-		class="h-full fixed"
+		class="h-full fixed dark:text-white"
 		onmousedown={() => {
 			app.switchWindowFocus(WindowTitles.Desktop);
 		}}
@@ -69,6 +71,7 @@
 		<Friends />
 
 		<BackgroundChanger />
+		<ThemeChanger />
 	</div>
 
 	{@render dock()}

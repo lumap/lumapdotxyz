@@ -60,7 +60,7 @@
 <div
     class="fixed rounded-xl
         bg-white dark:bg-slate-700 
-        border-stone-500 border-[1px] 
+        border-stone-500 border 
         {app.focusedWindow === title ? "shadow-2xl" : ""} 
         {thisWindow.isOpened ? "block" : "hidden"} 
         {isMoving || (isBeingResized !== "none") ? "pointer-events-none cursor-grabbing" : ""}"
@@ -103,7 +103,7 @@
     <!-- top bar -->
     <div
         class="w-full h-9 flex items-center px-3 select-none cursor-grab 
-        border-b-slate-300 dark:border-b-slate-600 border-b-[1px]"
+        border-b-slate-300 dark:border-b-slate-600 border-b"
         onmousedown={() => isMoving = true}
     >
         <div class="flex-1">

@@ -4,6 +4,7 @@ export enum WindowTitles {
     Contact = "Contact",
     Friends = "Friends",
     BackgroundChanger = "Background Changer",
+    ThemeChanger = "Theme Changer",
 }
 
 import { SvelteSet } from "svelte/reactivity"
@@ -60,6 +61,7 @@ class App {
         this.windows[windowTitle]!.isOpened = false
         this.focusOrder.delete(windowTitle);
         if (this.focusedWindow === windowTitle) this.focusedWindow = [...this.focusOrder][this.focusOrder.size - 1];
+        console.log("[app.closeWindow] closed window:", windowTitle);
     }
 
     getZIndex(windowTitle: WindowTitles) {
