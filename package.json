@@ -35,6 +35,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
 		"@sveltejs/adapter-cloudflare": "^4.9.0",
 		"@sveltejs/adapter-static": "^3.0.8",
+		"@tailwindcss/vite": "^4.1.11",
 		"bits-ui": "^0.21.16",
 		"clsx": "^2.1.1",
 		"formsnap": "^1.0.1",
