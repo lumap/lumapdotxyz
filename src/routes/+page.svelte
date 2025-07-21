@@ -4,11 +4,14 @@
 	import Hello from "$lib/windows/Hello.svelte";
 	import Contact from "$lib/windows/Contact.svelte";
 	import Friends from "$lib/windows/Friends.svelte";
+	import Travel from "$lib/windows/Travel.svelte";
+	import Projects from "$lib/windows/Projects.svelte";
+	
 	import BackgroundChanger from "$lib/windows/BackgroundChanger.svelte";
+	import ThemeChanger from "$lib/windows/ThemeChanger.svelte";
 
 	import DockIcon from "$lib/components/DockIcon.svelte";
 	import MenuBar from "$lib/components/MenuBar.svelte";
-	import ThemeChanger from "$lib/windows/ThemeChanger.svelte";
 
 	let root: HTMLElement;
 
@@ -17,7 +20,7 @@
 			app.switchToMobile();
 		}
 		if (!app.shuffled) {
-			app.shuffleWindows(screen.width, screen.height);
+			app.shuffleWindowPositions(screen.width, screen.height);
 		}
 
 		root.style.backgroundImage = `url(${app.wallpaper})`;
@@ -46,6 +49,8 @@
 			{ icon: "/icons/wave.png", iconAlt: "Apple Wave Emoji (Hello)", title: WindowTitles.Hello },
 			{ icon: "/icons/speech_balloon.png", iconAlt: "Apple Phone Emoji (Contact)", title: WindowTitles.Contact },
 			{ icon: "/icons/two_people.png", iconAlt: "Apple Friends Emoji (Friends)", title: WindowTitles.Friends },
+			{ icon: "/icons/plane.png", iconAlt: "Apple Plane Emoji (Travel)", title: WindowTitles.Travel },
+			{ icon: "/icons/briefcase.png", iconAlt: "Apple Briefcase Emoji (Work)", title: WindowTitles.Projects },
 			{ icon: "/icons/spacer.png", iconAlt: "Spacer" },
 			{ icon: "/icons/landscape.png", iconAlt: "Apple National Park Emoji (Change Wallpaper)", title: WindowTitles.BackgroundChanger },
 			{ icon: "/icons/halfmoon.png", iconAlt: "Apple Last Quarter Moon Emoji (Theme Changer)", title: WindowTitles.ThemeChanger }
@@ -69,6 +74,8 @@
 		<Hello />
 		<Contact />
 		<Friends />
+		<Travel />
+		<Projects />
 
 		<BackgroundChanger />
 		<ThemeChanger />

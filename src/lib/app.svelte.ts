@@ -1,13 +1,15 @@
 export enum WindowTitles {
-    Desktop = "Desktop",
-    Hello = "Hello",
-    Contact = "Contact",
-    Friends = "Friends",
-    BackgroundChanger = "Background Changer",
-    ThemeChanger = "Theme Changer",
+    Desktop = 'Desktop',
+    Hello = 'Hello',
+    Contact = 'Contact',
+    Friends = 'Friends',
+    Travel = 'Travel',
+    Projects = 'Projects',
+    BackgroundChanger = 'Background Changer',
+    ThemeChanger = 'Theme Changer'
 }
 
-import { SvelteSet } from "svelte/reactivity"
+import { SvelteSet } from 'svelte/reactivity';
 
 type WindowState = {
     x: number;
@@ -15,34 +17,47 @@ type WindowState = {
     width: number;
     height: number;
     isOpened: boolean;
-    title: WindowTitles
-}
+    title: WindowTitles;
+};
 
 type WindowType = Partial<{
-    [key in WindowTitles]: WindowState
+    [key in WindowTitles]: WindowState;
 }>;
 
 class App {
     // The order of the windows in the focusOrder array determines the z-index of the windows (the last element is the topmost window)
-    private focusOrder = new SvelteSet([WindowTitles.Hello, WindowTitles.Desktop]);
+    private focusOrder = new SvelteSet([WindowTitles.Hello]);
     focusedWindow = $state(WindowTitles.Hello);
     windows = $state<WindowType>({});
-    wallpaper = $state("/wallpaper.jpeg");
+    wallpaper = $state('/wallpaper.jpeg');
     isMobile = $state(false);
     shuffled = $state(false);
 
     constructor() {
-        const defaultOpenedWindows = [WindowTitles.Desktop, WindowTitles.Hello, WindowTitles.Contact, WindowTitles.Friends]
+        const defaultOpenedWindows = [
+            WindowTitles.Desktop,
+            WindowTitles.Hello,
+            WindowTitles.Contact,
+            WindowTitles.Friends,
+            WindowTitles.Travel,
+            WindowTitles.Projects
+        ];
         for (const key of Object.values(WindowTitles)) {
+            if (defaultOpenedWindows.includes(key)) this.focusOrder.add(key);
             this.windows[key] = {
                 x: 100,
                 y: 100,
-                width: 800,
-                height: 500,
+                width: 700,
+                height: 450,
                 isOpened: defaultOpenedWindows.includes(key),
                 title: key
-            } as WindowState
+            } as WindowState;
         }
+        
+        const shuffledWindows = [...this.focusOrder].sort(() => Math.random() - 0.5);
+        console.log(shuffledWindows, [...this.focusOrder])
+        this.focusOrder = new SvelteSet(shuffledWindows);
+        this.focusedWindow = [...this.focusOrder][this.focusOrder.size - 1];
     }
 
     switchWindowFocus(windowTitle: WindowTitles) {
@@ -50,18 +65,19 @@ class App {
         this.focusOrder.add(windowTitle);
 
         this.focusedWindow = windowTitle;
-        console.log("[app.switchWindowFocus] focusedWindow.windowTitle:", windowTitle);
-        console.log("[app.switchWindowFocus] focusedWindow.windows:", $state.snapshot(this.windows));
-        console.log("[app.switchWindowFocus] focusedWindow:", this.windows[windowTitle]);
+        console.log('[app.switchWindowFocus] focusedWindow.windowTitle:', windowTitle);
+        console.log('[app.switchWindowFocus] focusedWindow.windows:', $state.snapshot(this.windows));
+        console.log('[app.switchWindowFocus] focusedWindow:', this.windows[windowTitle]);
 
-        this.windows[windowTitle]!.isOpened = true
+        this.windows[windowTitle]!.isOpened = true;
     }
 
     closeWindow(windowTitle: WindowTitles) {
-        this.windows[windowTitle]!.isOpened = false
+        this.windows[windowTitle]!.isOpened = false;
         this.focusOrder.delete(windowTitle);
-        if (this.focusedWindow === windowTitle) this.focusedWindow = [...this.focusOrder][this.focusOrder.size - 1];
-        console.log("[app.closeWindow] closed window:", windowTitle);
+        if (this.focusedWindow === windowTitle)
+            this.focusedWindow = [...this.focusOrder][this.focusOrder.size - 1];
+        console.log('[app.closeWindow] closed window:', windowTitle);
     }
 
     getZIndex(windowTitle: WindowTitles) {
@@ -78,18 +94,12 @@ class App {
         }
     }
 
-    shuffleWindows(screenWidth: number, screenHeight: number) {
+    shuffleWindowPositions(screenWidth: number, screenHeight: number) {
         for (const key of Object.values(WindowTitles)) {
-            this.windows[key]!.x = Math.floor(Math.random() * (screenWidth - 200));
-            this.windows[key]!.y = Math.floor(Math.random() * (screenHeight - 200));
+            this.windows[key]!.x = Math.floor(Math.random() * (screenWidth * 0.7));
+            this.windows[key]!.y = Math.floor(Math.random() * (screenHeight * 0.7));
         }
-
-        // shuffle windows in focusOrder
-        const shuffledFocusOrder = Array.from(this.focusOrder).sort(() => Math.random() - 0.5);
-        this.focusOrder.clear();
-        for (const title of shuffledFocusOrder) {
-            this.focusOrder.add(title);
-        }
+        
         this.shuffled = true;
     }
 }
