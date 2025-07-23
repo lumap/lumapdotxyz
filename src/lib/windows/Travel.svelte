@@ -4,7 +4,7 @@
 	
 	const countries: string[] = [
 		'France',
-		'United Kingdom (only Britain)',
+		'United Kingdom (only England so far)',
 		'Belgium',
 		'Spain',
 		'Portugal',
