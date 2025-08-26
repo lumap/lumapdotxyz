@@ -10,7 +10,8 @@
 		'Portugal',
 		'Czech Republic',
 		'Switzerland',
-		'Netherlands (soon...)'
+		'Netherlands',
+		'Italy'
 	];
 </script>
 
