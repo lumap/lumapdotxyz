@@ -1,2 +1,2 @@
 # MOVED TO CODEBERG
-https://codeberg.com/lumap/lumapdotxyz
+https://codeberg.org/lumap/lumapdotxyz
